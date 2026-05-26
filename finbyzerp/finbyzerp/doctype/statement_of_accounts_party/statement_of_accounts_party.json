@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "creation": "2022-04-28 11:01:49.779074",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "supplier",
+  "customer",
+  "billing_email",
+  "primary_email"
+ ],
+ "fields": [
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "billing_email",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Billing Email"
+  },
+  {
+   "fieldname": "primary_email",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Primary Contact Email"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-02-21 14:19:32.956843",
+ "modified_by": "Administrator",
+ "module": "Finbyzerp",
+ "name": "Statement of Accounts Party",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
