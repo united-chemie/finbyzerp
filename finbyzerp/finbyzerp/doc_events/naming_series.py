@@ -31,14 +31,16 @@ def before_naming(self, method):
                     self.naming_series, fiscal, self.company_series
                 )
                 check = frappe.db.get_value("Series", name, "current", order_by="name")
-                if check == 0:
-                    pass
-                elif not check:
+                if check is None:
                     frappe.db.sql(
                         f"INSERT INTO `tabSeries` (name, current) VALUES ('{name}', 0)"
                     )
+                    check = 0
 
-                frappe.db.sql(
-                    f"UPDATE `tabSeries` SET current = {cint(self.series_value) - 1} WHERE name = '{name}'"
-                )
+                current_value = cint(check or 0)
+                target_value = cint(self.series_value) - 1
 
+                if target_value > current_value:
+                    frappe.db.sql(
+                        f"UPDATE `tabSeries` SET current = {target_value} WHERE name = '{name}'"
+                    )
